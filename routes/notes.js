@@ -14,15 +14,15 @@ router.get('/', (req, res, next) => {
   const { searchTerm, folderId, tagId } = req.query;
   const userId = req.user.id;
 
-  let filter = {userId};
+  let filter = {userId:userId};  
 
   if (searchTerm) {
     const re = new RegExp(searchTerm, 'i');
     filter.$or = [{ 'title': re }, { 'content': re }];
   }
 
-  if (folderId) {
-    filter.folderId = folderId;
+  if (folderId) {   
+    filter.folderId = folderId; 
   }
 
   if (tagId) {
@@ -187,7 +187,7 @@ router.delete('/:id', (req, res, next) => {
     return next(err);
   }
 
-  Note.findByIdAndRemove({_id: id,userId})
+  Note.findOneAndRemove({_id: id,userId})
     .then(() => {
       res.sendStatus(204);
     })
