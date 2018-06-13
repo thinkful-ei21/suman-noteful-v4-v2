@@ -60,7 +60,7 @@ router.post('/', (req, res, next) => {
   };
 
   const tooSmallField = Object.keys(sizedFields).find(
-    field => 'min' in sizedFields[field] &&
+    field => 'min' in sizedFields[field] &&  //if min is a key in 'username'
       req.body[field].trim().length < sizedFields[field].min
   );
   if (tooSmallField) {
