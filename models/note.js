@@ -22,4 +22,6 @@ noteSchema.set('toObject', {
   }
 });
 
+
+
 module.exports = mongoose.model('Note', noteSchema);
