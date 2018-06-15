@@ -18,7 +18,7 @@ const seedTags = require('../db/seed/tags');
 chai.use(chaiHttp);
 const expect = chai.expect;
 
-describe('Noteful API - Notes', function () {
+describe.skip('Noteful API - Notes', function () {
 
   before(function () {
     return mongoose.connect(TEST_MONGODB_URI)
