@@ -189,6 +189,11 @@ router.post('/', (req, res, next) => {
     validateFolderId(folderId, userId),
     validateTagIds(tags, userId)
   ])
+    // .catch(err => {
+    //   console.log(`Validation failing`);
+    //   return recoverFromError();
+    //   // Promise.reject(err);      
+    // })
     .then(() => Note.create(newNote))
     .then(result => {
       res.location(`${req.originalUrl}/${result.id}`).status(201).json(result);

@@ -3,11 +3,11 @@
 const express = require('express');
 
 const User = require('../models/user');
-const passport = require('passport');
+//const passport = require('passport');
 
 const router = express.Router();
 // Protect endpoints using JWT Strategy
-router.use('/', passport.authenticate('jwt', { session: false, failWithError: true }));
+//router.use('/', passport.authenticate('jwt', { session: false, failWithError: true }));
 
 
 
